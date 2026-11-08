@@ -1,10 +1,11 @@
 from classes.book import Book
+from classes.library import Library
 
 books = [
     Book("Clean Code", "Martin", 3),
     Book("Python Basics", "Cohen", 1),
 ]
- 
+
 books[0].borrow()
 books[1].borrow()
  
@@ -23,3 +24,9 @@ for book in books:
  
 print("Books in the library:", Book.total_books)
 
+library = Library()
+for book in books:
+    library.add_book(book)
+for book in library.books_list:
+    print(book.name)
+print(library.available_books())
